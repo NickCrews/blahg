@@ -14,7 +14,7 @@
   },
   "scripts": {
     "build": "next build",
-    "dev": "next",
+    "dev": "NODE_OPTIONS='--inspect' next dev",
     "start": "next start"
   },
   "dependencies": {
@@ -26,6 +26,7 @@
     "autoprefixer": "^10.2.6",
     "big.js": "6.1.1",
     "date-fns": "2.21.3",
+    "dotenv": "^10.0.0",
     "fathom-client": "3.0.0",
     "firebase-admin": "9.9.0",
     "googleapis": "48.0.0",
@@ -45,8 +46,7 @@
     "remark-code-titles": "0.1.2",
     "remark-slug": "6.0.0",
     "swr": "0.5.6",
-    "tailwindcss": "^2.1.2",
-    "unsplash-js": "6.3.0"
+    "tailwindcss": "^2.1.2"
   },
   "devDependencies": {
     "eslint": "^7.27.0",
