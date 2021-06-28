@@ -76,7 +76,7 @@ So now we just need a way of measuring the strain in our aluminum.
 
 ### Strain to Resistance Conversion
 
-(If you want some more math for the next two sections, [this handout](http://soliton.ae.gatech.edu/people/jcraig/classes/ae3145/Lab2/bridge-measure.pdf) is very helpful.)
+(If you want some more math for the next two sections, [this handout](https://soliton.ae.gatech.edu/people/jcraig/classes/ae3145/Lab2/bridge-measure.pdf) is very helpful.)
 
 We measure the strain by using something called a strain gauge. A strain gauge is just a wafer thin pad about the size of a pinky nail that you glue onto your test piece so that it stretches along with the substrate material. Etched onto the pad are electrically conductive wires that wind back and forth, skinny and with lots of wraps in one dimension, and fat and with few wraps in the other.
 
@@ -95,7 +95,7 @@ Awesome, so we're getting there, but a computer can't read a resistance directly
 
 ### Resistance to Voltage Conversion
 
-We use a circuit called a Wheatstone Bridge to convert the resistance change to a voltage change. This circuit is pictured below. You can also follow along and play with an online simulation of the circuit [here](http://www.falstad.com/circuit/circuitjs.html?cct=$+3+0.000005+12.050203812241895+44+5+50%0Aw+272+64+80+64+0%0Ar+272+64+168+168+0+100%0Ar+168+168+272+288+0+100%0Ar+272+64+368+168+0+100%0Av+80+288+80+64+0+0+40+10+0+0+0.5%0Aw+272+288+80+288+0%0Ap+168+168+368+168+1+0%0Ax+357+232+498+235+4+24+Strain%5CsGauge%0Ax+-8+161+68+164+4+24+Battery%0Ar+368+168+328+208+0+90%0A174+328+256+296+216+0+20+0.5+Strain+Gauge%0Aw+296+232+272+288+0%0Ax+230+192+302+195+4+24+Output%0Ag+80+288+80+304+0%0A).
+We use a circuit called a Wheatstone Bridge to convert the resistance change to a voltage change. This circuit is pictured below. You can also follow along and play with an online simulation of the circuit [here](https://www.falstad.com/circuit/circuitjs.html?cct=$+3+0.000005+12.050203812241895+44+5+50%0Aw+272+64+80+64+0%0Ar+272+64+168+168+0+100%0Ar+168+168+272+288+0+100%0Ar+272+64+368+168+0+100%0Av+80+288+80+64+0+0+40+10+0+0+0.5%0Aw+272+288+80+288+0%0Ap+168+168+368+168+1+0%0Ax+357+232+498+235+4+24+Strain%5CsGauge%0Ax+-8+161+68+164+4+24+Battery%0Ar+368+168+328+208+0+90%0A174+328+256+296+216+0+20+0.5+Strain+Gauge%0Aw+296+232+272+288+0%0Ax+230+192+302+195+4+24+Output%0Ag+80+288+80+304+0%0A).
 
 <Image
   alt={`Diagram of the Wheatstone bridge circuit`}
@@ -236,7 +236,7 @@ At first I powered it using either a wall plug and cable or USB cable to compute
 
 So we've managed to convert a force into a voltage. How the heck do we read and interpret this? First of all, we use the Arduino to read the voltage, and then send the reading via bluetooth or USB to a laptop. On the laptop there is a GUI (Graphical User Interface) python program that allows us to view the readings and interact with the sensor. We can select which sensor to connect to (in case you have multiple lol?), what sample rate we want to use, and what baudrate to use for a USB connection. Then, the readings received are displayed on a dynamically updating plot. You can calibrate the sensor using the program too, by taking sample points of known voltage and weight, and then doing a linear regression to find the line of best fit. After calibrating, all the readings can be displayed with their real weight. It is also possible to save and load these calibrations, as well as recordings of what the scale reads, so you can go back and interpret experiments from the past.
 
-All of the code can be found on a [GitHub](http://github.com/NickCrews/boa), as well as a pretty decent description of what is going on.
+All of the code can be found on a [GitHub](https://github.com/NickCrews/boa), as well as a pretty decent description of what is going on.
 
 <Image
   alt={`On the right is the updating plot of readings. The left axis is the raw voltage reading, and the right axis shows the real weight after the voltage is translated through the calibration fit. On the left is the interface for editing a calibration, by adding or removing weight/voltage pairs, and viewing the fit of the samples. There is also a tab on the left for changing the settings of the scale. At the top are some menus for changing the units (lbs, kgs, N) and for saving/loading calibrations and recordings.`}
@@ -275,7 +275,7 @@ The sensor was calibrated in the Colorado College varsity weight room. Ten volta
 
 After a fit was found from the calibration, drop tests were performed in the Ritt Kellogg Climbing Gym to measure the forces generated during various types of climbing falls on several materials. The three scenarios tested were large falls (7.3m) on dynamic (stretchy) climbing rope using a dummy weight (pictured), smaller falls (~2m) with people as weight, and short (<1m) falls on static (non-stretchy) nylon and dyneema slings using the dummy weight.
 
-Below are some videos of the various drop tests. More videos can be found on [Google Drive](http://goo.gl/upfvTx).
+Below are some videos of the various drop tests. More videos can be found on [Google Drive](https://goo.gl/upfvTx).
 
 ### Large Dynamic Fall
 

@@ -1,7 +1,4 @@
-import Link from 'next/link';
-
 import Analytics from '@/components/metrics/Analytics';
-import Buttondown from '@/components/metrics/Buttondown';
 import Container from '@/components/Container';
 import GitHub from '@/components/metrics/Github';
 import TopTracks from '@/components/TopTracks';
@@ -27,9 +24,6 @@ export default function Dashboard() {
         <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 my-2 w-full">
           <Analytics />
           <GitHub />
-        </div>
-        <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 my-2 w-full">
-          <Buttondown />
         </div>
         <h2 className="font-bold text-3xl tracking-tight mb-4 mt-16 text-black dark:text-white">
           Top Tracks

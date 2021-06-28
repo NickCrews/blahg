@@ -1,6 +1,5 @@
 import Link from 'next/link';
 
-import Timeline from '../components/Timeline';
 import Container from '../components/Container';
 import BlogPost from '../components/BlogPost';
 
@@ -30,7 +29,20 @@ export default function Home() {
           summary="Learn about the high-strength, wireless force sensor I fabricated and programmed."
           slug="force-sensor"
         />
-        <Timeline />
+        <BlogPost
+          title="Homemade Rock Climbing Cam"
+          summary="I machined a high-performing clone of a Black Diamond C4 cam."
+          slug="climbing-cam"
+        />
+        <h3 className="font-bold text-2xl md:text-4xl tracking-tight mb-4 text-black dark:text-white">
+          About
+        </h3>
+        <h2 className="prose text-gray-600 dark:text-gray-400 mb-16">
+          {"You can learn more about my story and background on the "}
+          <Link href="/about">
+            <a>about page.</a>
+          </Link>
+        </h2>
       </div>
     </Container>
   );
