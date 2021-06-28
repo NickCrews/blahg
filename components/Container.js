@@ -13,10 +13,10 @@ export default function Container(props) {
   // After mounting, we have access to the theme
   useEffect(() => setMounted(true), []);
 
-  const { children, ...customMeta } = props;
+  const { children, titlePrefix, ...customMeta } = props;
   const router = useRouter();
   const meta = {
-    title: 'Nick Crews – Build Stuff',
+    title: titlePrefix ? `${titlePrefix} - Nick Crews` : "Nick Crews – Build Stuff",
     description: `Front-end developer, JavaScript enthusiast, and course creator.`,
     image: 'https://nickcrews.me/static/images/banner.png',
     type: 'website',
@@ -81,7 +81,7 @@ export default function Container(props) {
           )}
         </button>
         <div className="text-red-900"> Warning: This site is in the progress of migrating from Lee Robinson to Nick Crews. See
-          <NextLink href="github.com/NickCrews/blahg"> github.com/NickCrews/blahg</NextLink>
+          <NextLink href="https://github.com/NickCrews/blahg"> github.com/NickCrews/blahg</NextLink>
         </div>
         <div>
           <NextLink href="/dashboard">
