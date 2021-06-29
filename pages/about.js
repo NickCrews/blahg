@@ -12,7 +12,11 @@ export default function About() {
         </h1>
         <div className="mb-8 prose leading-6 text-gray-600 dark:text-gray-400">
           <p>
-            I'm Nick. I like to build stuff, in computer code and in real life.
+            I'm Nick. I like to build stuff, especially when it's a pairing that
+            leverages computer science to directly solve problems in the physical world.
+
+            I have experience as a software engineer, physicist, teacher, carpenter,
+            and in an ideal project I get to exercise all these parts of my brain.
           </p>
         </div>
         <Timeline />
