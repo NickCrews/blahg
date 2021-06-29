@@ -43,7 +43,7 @@ export default class NavBar extends Component {
         return (
             <>
                 <nav
-                    className={`flex items-center justify-between w-full max-w-4xl p-8 mx-auto my-0 bg-primary dark:bg-black navbar${this.state.visible ? "" : " navbar--hidden"}`}
+                    className={`flex items-center justify-between w-full p-8 mx-auto my-0 bg-primary dark:bg-black navbar${this.state.visible ? "" : " navbar--hidden"}`}
                 >
                     <a href="#skip" className="skip-nav">
                         Skip to content
