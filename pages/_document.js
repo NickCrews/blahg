@@ -41,8 +41,8 @@ class MyDocument extends Document {
             href="/static/favicons/safari-pinned-tab.svg"
             rel="mask-icon"
           />
-          <meta name="theme-color" content="#440d54"  />
-          <meta name="msapplication-TileColor" content="#440d54"  />
+          <meta name="theme-color" content="#440d54" />
+          <meta name="msapplication-TileColor" content="#440d54" />
           <meta
             content="/static/favicons/browserconfig.xml"
             name="msapplication-config"
@@ -53,7 +53,7 @@ class MyDocument extends Document {
             name="google-site-verification"
           />
         </Head>
-        <body className="bg-white dark:bg-black text-white dark:text-black">
+        <body className="bg-white dark:bg-black text-black dark:text-white">
           <Main />
           <NextScript />
         </body>

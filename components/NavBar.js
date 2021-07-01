@@ -1,15 +1,7 @@
 import { Component } from "react";
-import NextLink from 'next/link';
 
 import ThemeButton from '@/components/ThemeButton'
-
-function NavLink({ href, children }) {
-    return (
-        <NextLink href={href}>
-            <a className="p-1 text-secondary dark:text-white sm:p-4">{children}</a>
-        </NextLink>
-    )
-}
+import Link from "@/components/HeaderFooterLink";
 
 // Much of this code is taken from https://dev.to/guimg/hide-menu-when-scrolling-in-reactjs-47bj
 export default class NavBar extends Component {
@@ -43,17 +35,17 @@ export default class NavBar extends Component {
         return (
             <>
                 <nav
-                    className={`flex items-center justify-between w-full p-8 mx-auto my-0 bg-primary dark:bg-black navbar${this.state.visible ? "" : " navbar--hidden"}`}
+                    className={`flex items-center justify-between w-full p-8 mx-auto my-0 bg-primary navbar${this.state.visible ? "" : " navbar--hidden"}`}
                 >
                     <a href="#skip" className="skip-nav">
                         Skip to content
                     </a>
                     <ThemeButton />
                     <div>
-                        <NavLink href="/dashboard">Dashboard</NavLink>
-                        <NavLink href="/blog">Blog</NavLink>
-                        <NavLink href="/about">About</NavLink>
-                        <NavLink href="/">Home</NavLink>
+                        <Link href="/dashboard">Dashboard</Link>
+                        <Link href="/blog">Blog</Link>
+                        <Link href="/about">About</Link>
+                        <Link href="/">Home</Link>
                     </div>
                 </nav >
             </>
