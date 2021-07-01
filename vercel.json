@@ -26,10 +26,6 @@
       "destination": "/blog/nextjs-firebase-serverless"
     },
     {
-      "source": "/30min",
-      "destination": "https://calendly.com/lee-vercel/30min"
-    },
-    {
       "source": "/youtube",
       "destination": "https://www.youtube.com/channel/UCZMli3czZnd1uoc1ShTouQw"
     },
