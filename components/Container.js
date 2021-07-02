@@ -10,7 +10,7 @@ export default function Container(props) {
   const router = useRouter();
   const meta = {
     title: titlePrefix ? `${titlePrefix} - Nick Crews` : "Nick Crews – Build Stuff",
-    description: `Front-end developer, JavaScript enthusiast, and course creator.`,
+    description: `Software Engineer, Physicist, Teacher, and Learner.`,
     image: `${constants.url}/static/images/banner.png`,
     type: 'website',
     ...customMeta
