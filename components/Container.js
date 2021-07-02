@@ -11,7 +11,7 @@ export default function Container(props) {
   const meta = {
     title: titlePrefix ? `${titlePrefix} - Nick Crews` : "Nick Crews – Build Stuff",
     description: `Software Engineer, Physicist, Teacher, and Learner.`,
-    image: `${constants.url}/static/images/banner.png`,
+    image: `${constants.url}/static/images/banner.jpg`,
     type: 'website',
     ...customMeta
   };
