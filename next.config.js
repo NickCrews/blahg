@@ -8,12 +8,6 @@ module.exports = {
     turboMode: true,
     eslint: true
   },
-  images: {
-    domains: [
-      'i.scdn.co', // Spotify Album Art
-      'pbs.twimg.com' // Twitter Profile Picture
-    ]
-  },
   async headers() {
     return [
       {
