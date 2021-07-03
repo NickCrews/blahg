@@ -41,10 +41,10 @@ const ContentSecurityPolicy = `
   default-src 'self';
   script-src 'self' 'unsafe-eval' 'unsafe-inline' *.youtube.com *.twitter.com cdn.usefathom.com;
   child-src *.youtube.com *.google.com *.twitter.com;
-  frame-src gfycat.com *.viewstl.com *.vimeo.com *.youtube.com;
+  frame-src *.viewstl.com *.vimeo.com *.youtube.com;
   style-src 'self' 'unsafe-inline' *.googleapis.com;
   img-src * blob: data:;
-  media-src 'none';
+  media-src *.gfycat.com;
   connect-src *;
   font-src 'self';
 `;
