@@ -21,12 +21,12 @@ export default async function handler(req, res) {
         body: JSON.stringify({
           client_id: CLIENT_ID,
           client_secret: CLIENT_SECRET,
-          code
+          code,
         }),
         headers: {
           Accept: 'application/json',
-          'Content-Type': 'application/json'
-        }
+          'Content-Type': 'application/json',
+        },
       })
     ).json();
 
@@ -39,8 +39,8 @@ export default async function handler(req, res) {
           credentials: 'include',
           headers: {
             Authorization: `token ${accessToken}`,
-            Accept: 'application/json'
-          }
+            Accept: 'application/json',
+          },
         })
       ).json();
 

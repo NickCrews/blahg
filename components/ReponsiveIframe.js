@@ -4,15 +4,15 @@ const ResponsiveIframe = ({ aspectRatio, src }) => {
     <div
       className="iframe-container"
       style={{
-        position: "relative",
+        position: 'relative',
         paddingBottom: `${aspectRatio}` /* eg "56.25%" for 16:9 */,
       }}
     >
       <iframe
         style={{
-          position: "absolute",
-          width: "100%",
-          height: "100%"
+          position: 'absolute',
+          width: '100%',
+          height: '100%',
         }}
         src={src}
         frameBorder="0"

@@ -2,10 +2,8 @@ import NowPlaying from '@/components/NowPlaying';
 import Link from '@/components/HeaderFooterLink';
 
 const FooterColumn = ({ children }) => (
-  <div className="flex flex-col space-y-4">
-    {children}
-  </div>
-)
+  <div className="flex flex-col space-y-4">{children}</div>
+);
 
 export default function Footer() {
   return (

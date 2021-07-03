@@ -16,7 +16,7 @@ const CustomLink = (props) => {
   if (isInternalLink) {
     return (
       <Link href={href}>
-        <a {...props} />
+        <a {...props}></a>
       </Link>
     );
   }
@@ -33,7 +33,7 @@ const MDXComponents = {
   GfycatGIF,
   ProsCard,
   ResponsiveIframe,
-  Step
+  Step,
 };
 
 export default MDXComponents;

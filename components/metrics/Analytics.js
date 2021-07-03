@@ -9,5 +9,11 @@ export default function Analytics() {
 
   const pageViews = new Number(data?.total);
 
-  return <MetricCard header="All-Time Views" link={constants.url} metric={pageViews} />;
+  return (
+    <MetricCard
+      header="All-Time Views"
+      link={constants.url}
+      metric={pageViews}
+    />
+  );
 }

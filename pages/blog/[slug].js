@@ -5,13 +5,12 @@ import BlogLayout from '@/layouts/blog';
 import MDXComponents from '@/components/MDXComponents';
 
 export default function Blog({ mdxSource, frontMatter }) {
-
   return (
     <BlogLayout frontMatter={frontMatter}>
       <MDXRemote
         {...mdxSource}
         components={{
-          ...MDXComponents
+          ...MDXComponents,
         }}
       />
     </BlogLayout>
@@ -24,10 +23,10 @@ export async function getStaticPaths() {
   return {
     paths: posts.map((p) => ({
       params: {
-        slug: p.replace(/\.mdx/, '')
-      }
+        slug: p.replace(/\.mdx/, ''),
+      },
     })),
-    fallback: false
+    fallback: false,
   };
 }
 

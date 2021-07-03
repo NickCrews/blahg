@@ -68,8 +68,7 @@ export default function Timeline() {
       </ul>
       <Divider />
       <Year>2020</Year>
-      <ul>
-      </ul>
+      <ul></ul>
       <Divider />
       <Year>2019</Year>
       <ul>
@@ -77,7 +76,8 @@ export default function Timeline() {
           Just like everyone else and their grandma, apparently.
         </Step>
         <Step title="Quit Google">
-          I wanted a break from software, and a chance to focus full time on skiing and climbing.
+          I wanted a break from software, and a chance to focus full time on
+          skiing and climbing.
         </Step>
       </ul>
       {isShowingFullTimeline ? (

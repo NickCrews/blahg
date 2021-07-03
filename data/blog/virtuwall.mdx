@@ -1,4 +1,5 @@
 ---
+
 title: 'VirtuWall'
 publishedAt: '2021-07-01'
 summary: 'Detect a climber and holds on a indoor rock climbing wall using an Xbox Kinect, Python, and computer vision.'
@@ -12,17 +13,17 @@ This is an project that I worked on in the fall of 2015. I managed to get basic 
 I also worked on automatic hold detection (holds are the colorful plastic shapes that you grab onto), and you can see a result of that below:
 
 <Image
-alt={`Indoor rock climbing wall with holds outlines overlayed`}
-src={`/static/images/virtuwall/holds_outlined.png`}
-width={640}
-height={480}
+  alt={`Indoor rock climbing wall with holds outlines overlayed`}
+  src={`/static/images/virtuwall/holds_outlined.png`}
+  width={640}
+  height={480}
 />
 
 As you can see, it's not perfect, but not too shabby. My goal was to emulate something like the complete augmented reality climbing wall in the video below:
 
 <ResponsiveIframe
-aspectRatio="56.25%"
-src={'https://www.youtube.com/embed/oI7kLrpoqMs'}
+  aspectRatio="56.25%"
+  src={'https://www.youtube.com/embed/oI7kLrpoqMs'}
 />
 
 I started this project because this looked like an awesome mixture of some of my favorite things: climbing, computer science, and game design. I was also excited because I have always been fascinated by computer vision, and this seemed like an excellent introduction.
@@ -62,19 +63,19 @@ These two steps of normalization are taken care of in the method pretty_depth() 
 Below are the histograms of a typical depth image, the first one of the raw 10 bit image directly from the Kinect (the `2047` error pixels are ignored) and the second one the result of normalization, by constraining to `[768, 1023]` and then shifting to `[0,255]` range.
 
 <Image
-alt={`Histogram of a raw RGB image.`}
-src={`/static/images/virtuwall/hist_original.png`}
-width={800}
-height={600}
+  alt={`Histogram of a raw RGB image.`}
+  src={`/static/images/virtuwall/hist_original.png`}
+  width={800}
+  height={600}
 />
 
 Note that all the pixel values (AKA information) is squashed on the right side of the graph, taking up a small fraction of the valid range from 0 to 1023.
 
 <Image
-alt={`A histogram of the same image, after "zooming in" on the 768 to 1023 range.`}
-src={`/static/images/virtuwall/hist_normalized.png`}
-width={800}
-height={600}
+  alt={`A histogram of the same image, after "zooming in" on the 768 to 1023 range.`}
+  src={`/static/images/virtuwall/hist_normalized.png`}
+  width={800}
+  height={600}
 />
 
 Notice now the pixels and information are much more spread out over the range of 255 values, which gives much better contrast and better signal-to-noise ratio.
@@ -118,37 +119,37 @@ As compared to many other computer vision object recognition tasks, finding the 
 The result is pretty good. There are only occasional false positives, and only the most similarly colored holds are missed. The sharp corners of the actual wall are also picked up, but they can easily be filtered out as being long skinny lines. Although the mean shift filtering algorithm is slow enough that it can't run in real time, it's ok because we can just detect the holds during a calibration period, before the climber ever gets on the wall. I still want to do a lot more work on perfecting hold detection, but this is a pretty good start.
 
 <Image
-alt={`Raw RGB frame of the wall.`}
-src={`/static/images/virtuwall/holds_original.png`}
-width={640}
-height={480}
+  alt={`Raw RGB frame of the wall.`}
+  src={`/static/images/virtuwall/holds_original.png`}
+  width={640}
+  height={480}
 />
 
 Above: Raw RGB frame.
 
 <Image
-alt={`Looks similar to the previous pic, but all the colors are "flat" like from a comic book.`}
-src={`/static/images/virtuwall/holds_pyr_mean_shift.png`}
-width={640}
-height={480}
+  alt={`Looks similar to the previous pic, but all the colors are "flat" like from a comic book.`}
+  src={`/static/images/virtuwall/holds_pyr_mean_shift.png`}
+  width={640}
+  height={480}
 />
 
 Above: After applying Mean Shift Filtering to the original picture. It looks like a comic book!
 
 <Image
-alt={`Same image as previous, but with white outlines around all the holds.`}
-src={`/static/images/virtuwall/holds_outlined.png`}
-width={640}
-height={480}
+  alt={`Same image as previous, but with white outlines around all the holds.`}
+  src={`/static/images/virtuwall/holds_outlined.png`}
+  width={640}
+  height={480}
 />
 
 Above: overlay of result of Canny edge detection.
 
 <Image
-alt={`A blurry version of the original image.`}
-src={`/static/images/virtuwall/holds_median_blur.png`}
-width={640}
-height={480}
+  alt={`A blurry version of the original image.`}
+  src={`/static/images/virtuwall/holds_median_blur.png`}
+  width={640}
+  height={480}
 />
 
 Above: The original image after a simple median blur. Notice that the edges of the holds are blurry.
@@ -160,14 +161,14 @@ The RGB and depth camera on the Kinect are not aligned with each other, and have
 In the following image, the green is the mask of the climber found from the depth image. It is easy to see the edges of the depth image, and how the two views align. Notice the smaller field of view of the depth image, and that the view is even a little bit tilted.
 
 <Image
-alt={`Bright green mask overlayed on the RGB image.`}
-src={`/static/images/virtuwall/depth_rgb_overlay.png`}
-width={640}
-height={480}
+  alt={`Bright green mask overlayed on the RGB image.`}
+  src={`/static/images/virtuwall/depth_rgb_overlay.png`}
+  width={640}
+  height={480}
 />
 
 ## Conclusion
 
 In conclusion, I've managed to get some decent climber and hold detection, and have learned a lot about computer vision along the way. The detection isn't accurate enough yet for a real AR game, but with some tweaking it might be able to get there.
 
- Another thought I have is to try to do everything with the RGB camera, and completely toss the depth image. That would be cool because then the project wouldn't rely on the Kinect, and could be built with a Rasberry Pi and cheap webcam! With AI these days, it seems like this should be possible.
+Another thought I have is to try to do everything with the RGB camera, and completely toss the depth image. That would be cool because then the project wouldn't rely on the Kinect, and could be built with a Rasberry Pi and cheap webcam! With AI these days, it seems like this should be possible.
