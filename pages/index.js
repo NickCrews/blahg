@@ -30,6 +30,11 @@ export default function Home() {
           slug="force-sensor"
         />
         <BlogPost
+          title="Virtuwall"
+          summary="Detect a climber and holds on a indoor rock climbing wall using an Xbox Kinect, Python, and computer vision."
+          slug="virtuwall"
+        />
+        <BlogPost
           title="Homemade Rock Climbing Cam"
           summary="I machined a high-performing clone of a Black Diamond C4 cam."
           slug="climbing-cam"
