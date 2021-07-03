@@ -33,7 +33,7 @@ html {
   position: fixed;
   top: 0;
   z-index: 10;
-  transition: transform .6s;
+  transition: transform 0.6s;
 }
 
 .navbar--hidden {
@@ -61,6 +61,14 @@ html {
 .prose .anchor:after {
   @apply text-gray-300 dark:text-gray-700;
   content: '#';
+}
+
+.prose code::before {
+  content: none !important;
+}
+
+.prose code::after {
+  content: none !important;
 }
 
 .prose *:hover > .anchor {

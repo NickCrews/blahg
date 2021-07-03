@@ -9,7 +9,7 @@ async function generate() {
   const feed = new RSS({
     title: constants.title,
     site_url: constants.url,
-    feed_url: `${constants.url}/feed.xml`
+    feed_url: `${constants.url}/feed.xml`,
   });
 
   const posts = await fs.readdir(path.join(__dirname, '..', 'data', 'blog'));
@@ -25,7 +25,7 @@ async function generate() {
         title: frontmatter.data.title,
         url: `${constants.url}/blog/` + name.replace(/\.mdx?/, ''),
         date: frontmatter.data.publishedAt,
-        description: frontmatter.data.summary
+        description: frontmatter.data.summary,
       });
     })
   );

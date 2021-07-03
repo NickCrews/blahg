@@ -4,6 +4,7 @@ import Image from 'next/image';
 import ProsCard from '@/components/ProsCard';
 import ConsCard from '@/components/ConsCard';
 import Analytics from '@/components/metrics/Analytics';
+import GfycatGIF from '@/components/GfycatGIF';
 import Step from '@/components/Step';
 import ImageWithTheme from '@/components/ImageWithTheme';
 import ResponsiveIframe from '@/components/ReponsiveIframe';
@@ -15,7 +16,7 @@ const CustomLink = (props) => {
   if (isInternalLink) {
     return (
       <Link href={href}>
-        <a {...props} />
+        <a {...props}></a>
       </Link>
     );
   }
@@ -29,9 +30,10 @@ const MDXComponents = {
   a: CustomLink,
   Analytics,
   ConsCard,
+  GfycatGIF,
   ProsCard,
   ResponsiveIframe,
-  Step
+  Step,
 };
 
 export default MDXComponents;

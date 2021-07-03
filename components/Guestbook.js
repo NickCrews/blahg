@@ -1,4 +1,5 @@
 import { useState, useRef } from 'react';
+import Link from 'next/link';
 import { format } from 'date-fns';
 import useSWR, { mutate } from 'swr';
 
@@ -12,7 +13,7 @@ function GuestbookEntry({ entry, user }) {
     e.preventDefault();
 
     await fetch(`/api/guestbook/${entry.id}`, {
-      method: 'DELETE'
+      method: 'DELETE',
     });
 
     mutate('/api/guestbook');
@@ -48,7 +49,7 @@ export default function Guestbook({ initialEntries }) {
   const inputEl = useRef(null);
   const { data: user } = useSWR('/api/user', fetcher);
   const { data: entries } = useSWR('/api/guestbook', fetcher, {
-    initialData: initialEntries
+    initialData: initialEntries,
   });
 
   const leaveEntry = async (e) => {
@@ -57,19 +58,19 @@ export default function Guestbook({ initialEntries }) {
 
     const res = await fetch('/api/guestbook', {
       body: JSON.stringify({
-        body: inputEl.current.value
+        body: inputEl.current.value,
       }),
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
       },
-      method: 'POST'
+      method: 'POST',
     });
 
     const { error } = await res.json();
     if (error) {
       setForm({
         state: 'error',
-        message: error
+        message: error,
       });
       return;
     }
@@ -78,7 +79,7 @@ export default function Guestbook({ initialEntries }) {
     mutate('/api/guestbook');
     setForm({
       state: 'success',
-      message: `Hooray! Thanks for signing my Guestbook.`
+      message: `Hooray! Thanks for signing my Guestbook.`,
     });
   };
 
@@ -108,12 +109,12 @@ export default function Guestbook({ initialEntries }) {
             </button>
           </form>
         ) : (
-          <a
-            className="flex items-center justify-center my-4 font-bold h-8 bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-100 rounded w-28"
+          <Link
             href="/api/auth"
+            className="flex items-center justify-center my-4 font-bold h-8 bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-100 rounded w-28"
           >
-            Login
-          </a>
+            <a>Login</a>
+          </Link>
         )}
         {form.state === 'error' ? (
           <ErrorMessage>{form.message}</ErrorMessage>

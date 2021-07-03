@@ -11,8 +11,8 @@ export default function Home() {
           Hello, Friend!
         </h1>
         <h2 className="prose text-gray-600 dark:text-gray-400 mb-16">
-          I like to build things, both in computer code and in real life. Here, you can check out some of my past projects and ideas.
-          –&nbsp;
+          I like to build things, both in computer code and in real life. Here,
+          you can check out some of my past projects and ideas. –&nbsp;
           <Link href="/guestbook">
             <a>sign my guestbook</a>
           </Link>
@@ -30,6 +30,11 @@ export default function Home() {
           slug="force-sensor"
         />
         <BlogPost
+          title="Virtuwall"
+          summary="Detect a climber and holds on a indoor rock climbing wall using an Xbox Kinect, Python, and computer vision."
+          slug="virtuwall"
+        />
+        <BlogPost
           title="Homemade Rock Climbing Cam"
           summary="I machined a high-performing clone of a Black Diamond C4 cam."
           slug="climbing-cam"
@@ -38,7 +43,7 @@ export default function Home() {
           About
         </h3>
         <h2 className="prose text-gray-600 dark:text-gray-400 mb-16">
-          {"You can learn more about my story and background on the "}
+          {'You can learn more about my story and background on the '}
           <Link href="/about">
             <a>about page.</a>
           </Link>

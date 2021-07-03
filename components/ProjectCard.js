@@ -3,7 +3,7 @@ import * as Fathom from 'fathom-client';
 const trackGoal = (title) => {
   const goalCodes = {
     'React 2025': '5WGDOKV0',
-    'Mastering Next.js': 'HV9HDL0O'
+    'Mastering Next.js': 'HV9HDL0O',
   };
 
   Fathom.trackGoal(goalCodes[title], 0);

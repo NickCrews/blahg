@@ -33,7 +33,7 @@ export default async function handler(req, res) {
       email,
       updated_at: Date.now(),
       body: (req.body.body || '').slice(0, 500),
-      created_by: login
+      created_by: login,
     };
 
     await redis.hset('guestbook', id, JSON.stringify(updated));
