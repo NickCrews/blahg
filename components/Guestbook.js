@@ -1,4 +1,5 @@
 import { useState, useRef } from 'react';
+import Link from 'next/link';
 import { format } from 'date-fns';
 import useSWR, { mutate } from 'swr';
 
@@ -108,12 +109,12 @@ export default function Guestbook({ initialEntries }) {
             </button>
           </form>
         ) : (
-          <a
-            className="flex items-center justify-center my-4 font-bold h-8 bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-100 rounded w-28"
+          <Link
             href="/api/auth"
+            className="flex items-center justify-center my-4 font-bold h-8 bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-100 rounded w-28"
           >
-            Login
-          </a>
+            <a>Login</a>
+          </Link>
         )}
         {form.state === 'error' ? (
           <ErrorMessage>{form.message}</ErrorMessage>
