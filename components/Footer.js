@@ -18,9 +18,6 @@ export default function Footer() {
           <Link href="https://github.com/NickCrews">GitHub</Link>
           <Link href="https://linkedin.com/in/nicholas-b-crews">LinkedIn</Link>
         </FooterColumn>
-        <FooterColumn>
-          <Link href="/guestbook">Guestbook</Link>
-        </FooterColumn>
       </div>
     </footer>
   );

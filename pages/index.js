@@ -12,14 +12,7 @@ export default function Home() {
         </h1>
         <h2 className="prose text-gray-600 dark:text-gray-400 mb-16">
           I like to build things, both in computer code and in real life. Here,
-          you can check out some of my past projects and ideas. –&nbsp;
-          <Link href="/guestbook">
-            <a>sign my guestbook</a>
-          </Link>
-          {" while you're here or "}
-          <Link href="/about">
-            <a>learn more about me.</a>
-          </Link>
+          you can check out some of my past projects and ideas.
         </h2>
         <h3 className="font-bold text-2xl md:text-4xl tracking-tight mb-4 text-black dark:text-white">
           Featured Stories
