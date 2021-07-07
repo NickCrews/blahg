@@ -16,7 +16,7 @@
     "build": "next build",
     "dev": "NODE_OPTIONS='--inspect' next dev",
     "start": "next start",
-    "test": "prettier --check . && eslint ."
+    "test": "prettier --check . && eslint . && depcheck --ignores=preact,rehype"
   },
   "dependencies": {
     "@mdx-js/react": "1.6.22",
