@@ -9,7 +9,7 @@ export default function Footer() {
   return (
     <footer className="flex flex-col justify-center items-start mx-auto w-full bg-primary p-8">
       <NowPlaying />
-      <div className="w-full grid grid-cols-1 gap-4 pb-16 sm:grid-cols-3 max-w-xl">
+      <div className="w-full grid grid-cols-1 gap-4 pb-16 sm:grid-cols-2 max-w-xl">
         <FooterColumn>
           <Link href="/">Home</Link>
           <Link href="/about">About</Link>
