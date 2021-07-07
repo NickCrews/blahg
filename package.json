@@ -1,5 +1,5 @@
 {
-  "name": "NickCrewsBlahg",
+  "name": "nick-crews-blahg",
   "description": "My personal website.",
   "version": "0.0.0",
   "author": {
@@ -16,21 +16,15 @@
     "build": "next build",
     "dev": "NODE_OPTIONS='--inspect' next dev",
     "start": "next start",
-    "test": "prettier --check . && eslint ."
+    "test": "prettier --check . && eslint . && depcheck --ignores=preact,rehype"
   },
   "dependencies": {
-    "@mapbox/rehype-prism": "0.6.0",
-    "@mdx-js/loader": "1.6.22",
     "@mdx-js/react": "1.6.22",
-    "@next/mdx": "10.2.3",
     "@tailwindcss/typography": "^0.4.1",
     "autoprefixer": "^10.2.6",
-    "big.js": "6.1.1",
     "date-fns": "2.21.3",
     "dotenv": "^10.0.0",
-    "fathom-client": "3.0.0",
     "firebase-admin": "9.9.0",
-    "googleapis": "48.0.0",
     "gray-matter": "4.0.3",
     "mdx-prism": "0.3.3",
     "next": "^10.2.3",
@@ -48,12 +42,13 @@
     "tailwindcss": "^2.1.2"
   },
   "devDependencies": {
+    "depcheck": "^1.4.2",
     "eslint": "^7.27.0",
     "eslint-config-next": "10.2.3",
     "globby": "11.0.3",
     "image-size": "0.9.7",
     "prettier": "2.3.0",
-    "rehype": "11.0.0",
+    "rehype": "^11.0.0",
     "remark-frontmatter": "3.0.0",
     "remark-parse": "9.0.0",
     "remark-stringify": "9.0.1",
