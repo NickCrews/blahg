@@ -7,9 +7,9 @@ const FooterColumn = ({ children }) => (
 
 export default function Footer() {
   return (
-    <footer className="flex flex-col bg-primary p-8 gap-8">
+    <footer className="flex flex-col bg-primary p-8">
       <NowPlaying />
-      <div className="grid grid-cols-1 sm:grid-cols-2 max-w-xl gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 max-w-xl gap-4 pt-8">
         <FooterColumn>
           <Link href="/">Home</Link>
           <Link href="/about">About</Link>
