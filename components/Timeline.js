@@ -33,7 +33,7 @@ const Step = ({ title, children }) => {
         </svg>
         <p className="font-medium text-gray-900 dark:text-gray-100">{title}</p>
       </div>
-      <p className="text-gray-700 dark:text-gray-400 ml-6">{children}</p>
+      <p className="text-gray-700 dark:text-gray-400 ml-6 prose">{children}</p>
     </li>
   );
 };
@@ -58,26 +58,48 @@ export default function Timeline() {
       </h3>
       <Year>2021</Year>
       <ul>
-        <Step title="Started looking for engineering work">
+        <Step title="Started looking for engineering work 🔎">
           I'm extremely excited to look for a cross-functional role where I can
           use my coding skills to help non-coders.
         </Step>
-        <Step title="Moved to Bozeman, Montana">
+        <Step title="Moved to Bozeman, Montana 📦">
           It was time to move out of the van.
         </Step>
       </ul>
       <Divider />
       <Year>2020</Year>
-      <ul></ul>
+      <ul>
+        <Step title="Skied and climbed my brains out ⛷️">
+          I had always wanted to focus on these passions of mine. My partner and
+          I road tripped across much of the western US.
+        </Step>
+        <Step title="Started Brain Juice Tutoring 🧠">
+          I remotely teach 1:1 high-school- and college-level math, physics, and
+          CS. Check out{' '}
+          <a href="https://brainjuice.school">brainjuice.school</a>.
+        </Step>
+        <Step title="Moved into a van 🚗">
+          Just like everyone else and their grandma, apparently.
+        </Step>
+      </ul>
       <Divider />
       <Year>2019</Year>
       <ul>
-        <Step title="Moved into a van">
-          Just like everyone else and their grandma, apparently.
-        </Step>
         <Step title="Quit Google">
-          I wanted a break from software, and a chance to focus full time on
-          skiing and climbing.
+          I wanted to reassess what sort of work I was doing, and a chance to
+          focus full time on skiing and climbing.
+        </Step>
+      </ul>
+      <Year>2018</Year>
+      <ul>
+        <Step title="Started at Google 👨‍💻">
+          I worked on the ChromeOS team in Boulder, CO. I led the firmware
+          effort for a new Chromebook device, and did a lot of Linux Kernel
+          programming in C, as well as some C++, Python, and Go.
+        </Step>
+        <Step title="Graduated College 🎉">
+          Graduated from Colorado College with bachelors degrees in Computer
+          Science and Physics, plus a minor in Math.
         </Step>
       </ul>
       {isShowingFullTimeline ? (
