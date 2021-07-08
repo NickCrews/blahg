@@ -7,17 +7,21 @@ const FooterColumn = ({ children }) => (
 
 export default function Footer() {
   return (
-    <footer className="flex flex-col bg-primary p-8">
-      <NowPlaying />
-      <div className="grid grid-cols-1 sm:grid-cols-2 max-w-xl gap-4 pt-8">
-        <FooterColumn>
-          <Link href="/">Home</Link>
-          <Link href="/about">About</Link>
-        </FooterColumn>
-        <FooterColumn>
-          <Link href="https://github.com/NickCrews">GitHub</Link>
-          <Link href="https://linkedin.com/in/nicholas-b-crews">LinkedIn</Link>
-        </FooterColumn>
+    <footer className="bg-primary">
+      <div className="p-8 mx-auto max-w-xl">
+        <NowPlaying />
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-8">
+          <FooterColumn>
+            <Link href="/">Home</Link>
+            <Link href="/about">About</Link>
+          </FooterColumn>
+          <FooterColumn>
+            <Link href="https://github.com/NickCrews">GitHub</Link>
+            <Link href="https://linkedin.com/in/nicholas-b-crews">
+              LinkedIn
+            </Link>
+          </FooterColumn>
+        </div>
       </div>
     </footer>
   );
