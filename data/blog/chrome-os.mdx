@@ -1,0 +1,106 @@
+---
+
+title: 'ChromeOS work at Google'
+publishedAt: '2021-08-03'
+summary: 'I helped launch two new ChromeBook devices, focusing on writing new Linux Kernel drivers to support new firmware.'
+image: '/static/images/chrome-os/laptops.jpg'
+---​
+
+When I joined the ChromeOS team at Google, we were right at the start of a push to bring two new ChromeBook devices to market. A year later, we released two versions of the Dell Latitude 7410, the first ChromeBooks made by Dell, with the intention of disrupting the enterprise market. ChromeBooks have always been big in education, but Google thought that the same things that made them desirable there (cloud-first, secure, low IT requirements) would also make them popular for businesses to use as their fleet.
+
+I was in charge of the Embedded Controller (EC) and associated firmware on these new devices. The EC is a small, low power chip on the device that is responsible for keyboard control, power sequencing, battery state, boot verification, thermal control, and related low-level functionality. This is in comparison to the main CPU, which does most of the processing during normal use.
+
+The EC on most ChromeBooks is an open-source design, with open-source code running on it. On these new devices (codenamed "Wilco") however, we were using Dell's closed-source EC. Therefore there was a lot of new work in integrating this new EC with the rest of the ChromeOS ecosystem. I was the lead on this, talking to Dell, determining the EC communication specification, and writing Linux Kernel drivers so that the OS running on the main CPU could talk to the EC.
+
+Since most of ChromeOS is open source, you can view many of [my code contributions on the Chromium code review website](https://chromium-review.googlesource.com/q/ncrews%2540chromium.org). If you want some more specifics on what I worked on, read on.
+
+This work earned me the evaluation of **"Strongly Exceeds Expectations"** on my latest bi-annual performance review.
+
+<Image
+  alt={`The two Chromebook laptops that I worked on`}
+  src={`/static/images/chrome-os/laptops.jpg`}
+  width={1245}
+  height={592}
+/>
+
+## Wrote Linux Kernel Drivers
+
+I implemented the vast majority of the new Linux Kernel drivers needed to support the Wilco EC. These were written in C, like the rest of the Linux Kernel. I submitted these patches to the upstream linux kernel, so they are now part of the mainline Linux kernel. You can view the downstream versions of these patches on the [Chromium code review website](https://chromium-review.googlesource.com/q/owner:ncrews%2540chromium.org+project:chromiumos/third_party/kernel+branch:chromeos-4.19+-is:abandoned+-is:wip).
+
+These ~50 commits touched a variety of the kernel subsystems. I traveled to the 2019 Linux Plumbers' Conference in Lisbon, Portugal to meet with other Linux Kernel developers to meet in person and solve some of the problems we'd been hashing out over email.
+
+The drivers I wrote support:
+
+- An EC-internal RTC (real time clock)
+- Charging and power policies:
+  - Peak Shift Charge Scheduling
+  - Advanced Charging Charge Scheduling
+  - Primary Charge Mode policy
+- Keyboard backlight control.
+- Requesting telemetry information from the EC.
+- Emitting events on HW changes (e.g. battery removal).
+- USB PowerShare, so the device can charge phones etc even when off.
+- Boot-On-AC policy, so the device boots up when power is plugged in.
+- A debug interface for sending arbitrary commands to the EC.
+- A debug interface for querying the state of a GPIO coming out of the H1 security chip.
+
+I was the lead author on all of these commits as well as the architect for how all of the parts fit together. Some of the problems that I had to solve included:
+
+- Reverse engineering the behavior of the closed-source EC
+- Interpreting and experimenting to understand and sometimes correct the interface spec
+- Communicating with the often less-than-helpful Dell team
+- Learning about the kernel from near-0 knowledge
+- Dealing with the [sometimes hostile responses](https://lore.kernel.org/patchwork/patch/1061193/) on the LKML
+- Integrating the systems with the existing ChromeOS infrastructure such as the keyboard backlight and the [userspace RTC system](https://crrev.com/c/1636911).
+- Designing userspace APIs that would work to solve the problem elegantly but still be accepted upstream. The vast majority of the code is upstream, which makes it much more maintainable.
+
+This work required substantial independent design work, without direct supervision of a mentor. I received a spot bonus from a manager in recognition for my work on this project.
+
+## Designed Wilco EC Testing
+
+I became the most knowledgeable Googler when it comes to the Wilco EC, and therefore I took the responsibility of writing tests for it. The EC is responsible for a wide variety of essential functions and new Wilco-specific features, listed above. Since almost all of these are new features of ChromeOS, there wasn't much testing infrastructure in place. These tests are essential, since without them it is almost inevitable that these Wilco EC features will be silently broken by some unrelated code change during the long, unstaffed life cycle of Wilco.
+
+To help with testing I
+
+- Wrote a large-scale testing plan, which covers:
+
+  - Background
+  - What is tested
+  - What is not tested
+  - Why all of these decisions were made.
+
+- Wrote unit tests in [Python](https://chromium-review.googlesource.com/q/ncrews%2540chromium.org+ext:py) and [Go](https://chromium-review.googlesource.com/q/ncrews%2540chromium.org+ext:go) to test the EC's behavior and the kernel<->EC interface for the following features
+
+  - EC RTC
+  - Telemetry
+  - Advanced Charging
+  - Peak Shift
+  - Primary Charge Modes
+
+- Worked with a fellow engineer to design and implement end-to-end tests for the VM<->EC communication (one of the main users of the EC are applications that live within a sandboxed VM).
+
+## Added Notifications from Wilco EC Events
+
+The Wilco EC emits event when certain hardware events occur, such as the dock fan breaking or a display not working. Some of these events should cause notifications to be displayed to the user. A C++ daemon called `wilco_dtc_supportd` reads the events, parses them, and if the event meets certain criteria, forwards them to Chrome to display a notification. This feature is essential for alerting users to error conditions, as otherwise they would be confused why their dock or display is not working correctly. This feature was marked as "critical" in the upcoming release.
+
+I worked with one other engineer to add this support, which was mostly done in C++. You can [view all of my commits](https://chromium-review.googlesource.com/q/owner:ncrews%2540chromium.org+diagnostics+project:chromiumos/platform2+-is:abandoned+-is:wip) related to this. I added the logic to the daemon that parses and interprets the events. This required defining a packed struct to read the data into, reading the serialized data into the struct correctly, interpreting the data, and then writing tests for all of this.
+
+Some of the challenges that I had to overcome were
+
+- Dealing with the endianness of the binary data.
+- Mitigating already bloated test code.
+- Modifying existing code that interpreted EC Events incorrectly.
+- Communicating with external Dell engineers to understand the format of EC events.
+- Dealing with incomplete EC code from Dell.
+
+There was also some substantial refactoring of the daemon:
+
+- [Moving](https://crrev.com/c/1716074) responsibilities out of the Core class into an EventService.
+- [Fixing](https://crrev.com/c/1705336) the interpretation of EC Events.
+- [Fixing](https://crrev.com/c/1705338) some error handling when reading EC events from the kernel.
+
+## Reviewed OpenSSL 1.1 Uprev
+
+I was the main reviewer in a series of [42 C++ commits](https://chromium-review.googlesource.com/q/reviewer:1311094+owner:djkurtz) in the effort to upgrade OpenSSL in libchrome from 1.0 to 1.1. This uprev process was started 2 years ago but then stalled out, which attests to the size of the task. This effort brought ~10 projects in the platform2 repo up to the modern API of OpenSSL. These projects are used for user data encryption, device unlock, ChromeOS's HW-backed security, remote device attestation, device policies, and many other security-critical pieces of the ChromeOS platform infrastructure. This made these projects more secure (not only by upgrading to the modern version, but also for fixing some existing bugs) as well as more maintainable for the future.
+
+I was one of the main reviewer for 80% of these commits, providing the large bulk of the feedback. Most of the commits took a few rounds of review before Daniel and I found a solution that we were pleased with. Sometimes my comments were trivial, but [sometimes I caught some bugs](https://crrev.com/c/1764422/1/chaps/session_impl.cc#390) that could have caused some difficult-to-understand crashes, or [caught some documentation](https://crrev.com/c/1764236/1..2/crypto/scoped_openssl_types.h#b44) that was about to become inaccurate.
