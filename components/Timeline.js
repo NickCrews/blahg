@@ -59,7 +59,9 @@ const FullTimeline = () => (
       <Step title="Worked as a commercial salmon fisherman">
         I worked as a deckhand on the F/V Halberd out of Whittier, Alaska every
         summer. We would go out for months at a time in Prince William Sound to
-        catch pink and chum salmon.
+        catch pink and chum salmon. Here's{' '}
+        <a href="https://vimeo.com/137759054">a goofy video</a> I made that
+        gives you a sense.
       </Step>
     </ul>
     <Year>1995</Year>
