@@ -1,10 +1,6 @@
 import { useState } from 'react';
 
-const Divider = () => {
-  return (
-    <div className="border border-gray-200 dark:border-gray-600 w-full my-8" />
-  );
-};
+import Divider from './Divider';
 
 const Year = ({ children }) => {
   return (
