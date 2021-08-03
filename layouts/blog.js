@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { parseISO, format } from 'date-fns';
 
 import Container from '@/components/Container';
+import Divider from '@/components/Divider';
 import ViewCounter from '@/components/ViewCounter';
 
 const editUrl = (slug) =>
@@ -44,13 +45,14 @@ export default function BlogLayout({ children, frontMatter }) {
         <div className="prose dark:prose-dark max-w-none w-full">
           {children}
         </div>
+        <Divider />
         <div className="text-sm text-gray-700 dark:text-gray-300">
           <a
             href={editUrl(frontMatter.slug)}
             target="_blank"
             rel="noopener noreferrer"
           >
-            {'Edit on GitHub'}
+            {'Edit this page on GitHub'}
           </a>
         </div>
       </article>

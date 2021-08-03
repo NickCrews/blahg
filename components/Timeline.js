@@ -1,11 +1,5 @@
 import { useState } from 'react';
 
-const Divider = () => {
-  return (
-    <div className="border border-gray-200 dark:border-gray-600 w-full my-8" />
-  );
-};
-
 const Year = ({ children }) => {
   return (
     <h3 className="text-lg md:text-xl font-bold mb-4 tracking-tight text-gray-900 dark:text-gray-100">
@@ -40,7 +34,36 @@ const Step = ({ title, children }) => {
 
 const FullTimeline = () => (
   <>
-    <Divider />
+    <Year>2014</Year>
+    <ul>
+      <Step title="Started at Colorado College">
+        I really enjoyed my time at this small liberal arts school. I learned a
+        ton from my super smart peers, teaching-focused professors, and the
+        intensive one-class-at-a-time "Block Plan".
+      </Step>
+    </ul>
+    <Year>2013</Year>
+    <ul>
+      <Step title="Coded for the first time">
+        I'd done some "coding-like" stuff such as{' '}
+        <a href="https://scratch.mit.edu/">Scratch</a> before, but this was the
+        first time I picked up my older sister's Java 101 textbook and started
+        going through some of the examples.
+      </Step>
+      <Step title="Graduated high school a year early">
+        Took a gap year before starting college.
+      </Step>
+    </ul>
+    <Year>2013-2018</Year>
+    <ul>
+      <Step title="Worked as a commercial salmon fisherman">
+        I worked as a deckhand on the F/V Halberd out of Whittier, Alaska every
+        summer. We would go out for months at a time in Prince William Sound to
+        catch pink and chum salmon. Here's{' '}
+        <a href="https://vimeo.com/137759054">a goofy video</a> I made that
+        gives you a sense.
+      </Step>
+    </ul>
     <Year>1995</Year>
     <ul>
       <Step title="Born 👶🏼🍼" />
@@ -66,7 +89,6 @@ export default function Timeline() {
           It was time to move out of the van.
         </Step>
       </ul>
-      <Divider />
       <Year>2020</Year>
       <ul>
         <Step title="Skied and climbed my brains out ⛷️">
@@ -82,7 +104,6 @@ export default function Timeline() {
           Just like everyone else and their grandma, apparently.
         </Step>
       </ul>
-      <Divider />
       <Year>2019</Year>
       <ul>
         <Step title="Quit Google">
@@ -93,9 +114,10 @@ export default function Timeline() {
       <Year>2018</Year>
       <ul>
         <Step title="Started at Google 👨‍💻">
-          I worked on the ChromeOS team in Boulder, CO. I led the firmware
-          effort for a new Chromebook device, and did a lot of Linux Kernel
-          programming in C, as well as some C++, Python, and Go.
+          I worked on the ChromeOS team in Boulder, CO. I was the lead Software
+          Engineer on the firmware effort for a new Chromebook device, and did a
+          lot of Linux Kernel programming in C, as well as some C++, Python, and
+          Go.
         </Step>
         <Step title="Graduated College 🎉">
           Graduated from Colorado College with bachelors degrees in Computer
