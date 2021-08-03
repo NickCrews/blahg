@@ -52,7 +52,7 @@ export default function BlogLayout({ children, frontMatter }) {
             target="_blank"
             rel="noopener noreferrer"
           >
-            {'Edit on GitHub'}
+            {'Edit this page on GitHub'}
           </a>
         </div>
       </article>
