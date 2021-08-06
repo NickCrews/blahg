@@ -16,6 +16,15 @@ module.exports = {
       },
     ];
   },
+  async redirects() {
+    return [
+      {
+        source: '/blog/:slug*',
+        destination: '/projects/:slug*',
+        permanent: true,
+      },
+    ];
+  },
   webpack: (config, { dev, isServer }) => {
     if (isServer) {
       require('./scripts/generate-sitemap');

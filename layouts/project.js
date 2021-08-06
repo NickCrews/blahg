@@ -6,9 +6,9 @@ import Divider from '@/components/Divider';
 import ViewCounter from '@/components/ViewCounter';
 
 const editUrl = (slug) =>
-  `https://github.com/NickCrews/blahg/edit/main/data/blog/${slug}.mdx`;
+  `https://github.com/NickCrews/blahg/edit/main/data/projects/${slug}.mdx`;
 
-export default function BlogLayout({ children, frontMatter }) {
+export default function ProjectLayout({ children, frontMatter }) {
   return (
     <Container
       titlePrefix={frontMatter.title}

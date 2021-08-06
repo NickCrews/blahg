@@ -12,18 +12,20 @@ async function generate() {
     feed_url: `${constants.url}/feed.xml`,
   });
 
-  const posts = await fs.readdir(path.join(__dirname, '..', 'data', 'blog'));
+  const posts = await fs.readdir(
+    path.join(__dirname, '..', 'data', 'projects')
+  );
 
   await Promise.all(
     posts.map(async (name) => {
       const content = await fs.readFile(
-        path.join(__dirname, '..', 'data', 'blog', name)
+        path.join(__dirname, '..', 'data', 'projects', name)
       );
       const frontmatter = matter(content);
 
       feed.item({
         title: frontmatter.data.title,
-        url: `${constants.url}/blog/` + name.replace(/\.mdx?/, ''),
+        url: `${constants.url}/projects/` + name.replace(/\.mdx?/, ''),
         date: frontmatter.data.publishedAt,
         description: frontmatter.data.summary,
       });

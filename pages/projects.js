@@ -1,12 +1,12 @@
 import { useState } from 'react';
 
 import Container from '@/components/Container';
-import BlogPost from '@/components/BlogPost';
+import ProjectPost from '@/components/ProjectPost';
 import { getAllFilesFrontMatter } from '@/lib/mdx';
 
-export default function Blog({ posts }) {
+export default function Projects({ posts }) {
   const [searchValue, setSearchValue] = useState('');
-  const filteredBlogPosts = posts
+  const filteredProjectPosts = posts
     .sort(
       (a, b) =>
         Number(new Date(b.publishedAt)) - Number(new Date(a.publishedAt))
@@ -17,12 +17,12 @@ export default function Blog({ posts }) {
 
   return (
     <Container
-      titlePrefix="Blog"
+      titlePrefix="Projects"
       description="Thoughts on the software industry, programming, tech, videography, music, and my personal life."
     >
       <div className="flex flex-col justify-center items-start max-w-2xl mx-auto mb-16">
         <h1 className="font-bold text-3xl md:text-5xl tracking-tight mb-4 text-black dark:text-white">
-          Blog
+          Projects
         </h1>
         <p className="text-gray-600 dark:text-gray-400 mb-4">
           {`Here you can read about some of my past projects I've worked on,
@@ -56,13 +56,13 @@ export default function Blog({ posts }) {
         <h3 className="font-bold text-2xl md:text-4xl tracking-tight mb-4 mt-8 text-black dark:text-white">
           All Posts
         </h3>
-        {!filteredBlogPosts.length && (
+        {!filteredProjectPosts.length && (
           <p className="text-gray-600 dark:text-gray-400 mb-4">
             No posts found.
           </p>
         )}
-        {filteredBlogPosts.map((frontMatter) => (
-          <BlogPost key={frontMatter.title} {...frontMatter} />
+        {filteredProjectPosts.map((frontMatter) => (
+          <ProjectPost key={frontMatter.title} {...frontMatter} />
         ))}
       </div>
     </Container>
@@ -70,7 +70,7 @@ export default function Blog({ posts }) {
 }
 
 export async function getStaticProps() {
-  const posts = await getAllFilesFrontMatter('blog');
+  const posts = await getAllFilesFrontMatter('projects');
 
   return { props: { posts } };
 }
