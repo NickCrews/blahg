@@ -2,12 +2,14 @@
 
 # Nick Crews's personal website
 
-Forked from https://github.com/leerob/leerob.io
+Forked from https://github.com/leerob/leerob.io. Thanks to Lee for all the work getting
+this set up. I took it and added my own content a tweaked a lot of things, but
+a lot of the logic and architecting should be credited to him.
 
 ## Overview
 
 - `pages/api/*` - [API routes](https://nextjs.org/docs/api-routes/introduction) powering [`/dashboard`](https://nickcrews.me/dashboard), newsletter subscription, and post views.
-- `pages/blog/*` - Static pre-rendered blog pages using [MDX](https://github.com/mdx-js/mdx).
+- `pages/projects/*` - Static pre-rendered project writeups using [MDX](https://github.com/mdx-js/mdx).
 - `pages/dashboard` - [Personal dashboard](https://nickcrews.me/dashboard) containing metrics like sales, views, and subscribers.
 - `pages/*` - All other static pages.
 

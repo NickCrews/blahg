@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
 import Container from '../components/Container';
-import BlogPost from '../components/BlogPost';
+import ProjectPost from '../components/ProjectPost';
 
 export default function Home() {
   return (
@@ -15,19 +15,19 @@ export default function Home() {
           you can check out some of my past projects and ideas.
         </h2>
         <h3 className="font-bold text-2xl md:text-4xl tracking-tight mb-4 text-black dark:text-white">
-          Featured Stories
+          Featured Projects
         </h3>
-        <BlogPost
+        <ProjectPost
           title="Homemade Force Sensor"
           summary="Learn about the high-strength, wireless force sensor I fabricated and programmed."
           slug="force-sensor"
         />
-        <BlogPost
+        <ProjectPost
           title="Virtuwall"
           summary="Detect a climber and holds on a indoor rock climbing wall using an Xbox Kinect, Python, and computer vision."
           slug="virtuwall"
         />
-        <BlogPost
+        <ProjectPost
           title="Homemade Rock Climbing Cam"
           summary="I machined a high-performing clone of a Black Diamond C4 cam."
           slug="climbing-cam"

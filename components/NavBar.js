@@ -45,7 +45,7 @@ export default class NavBar extends Component {
           <ThemeButton />
           <div>
             <Link href="/dashboard">Dashboard</Link>
-            <Link href="/blog">Blog</Link>
+            <Link href="/projects">Projects</Link>
             <Link href="/about">About</Link>
             <Link href="/">Home</Link>
           </div>
