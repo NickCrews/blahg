@@ -18,7 +18,7 @@ export default function Projects({ posts }) {
   return (
     <Container
       titlePrefix="Projects"
-      description="Thoughts on the software industry, programming, tech, videography, music, and my personal life."
+      description="Some of my past work with software, engineering, design, and teaching."
     >
       <div className="flex flex-col justify-center items-start max-w-2xl mx-auto mb-16">
         <h1 className="font-bold text-3xl md:text-5xl tracking-tight mb-4 text-black dark:text-white">
