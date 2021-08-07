@@ -2,7 +2,9 @@
 
 # Nick Crews's personal website
 
-Forked from https://github.com/leerob/leerob.io
+Forked from https://github.com/leerob/leerob.io. Thanks to Lee for all the work getting
+this set up. I took it and added my own content a tweaked a lot of things, but
+a lot of the logic and architecting should be credited to him.
 
 ## Overview
 
