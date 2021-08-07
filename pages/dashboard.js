@@ -29,7 +29,8 @@ export default function Dashboard() {
         </h2>
         <p className="text-gray-600 dark:text-gray-400 mb-4">
           Curious what I'm currently jamming to? Here are my top tracks on
-          Spotify, updated daily.
+          Spotify, updated daily. This shows off using serverless functions to
+          query the Spotify API. Hopefully you don't think this is too creepy...
         </p>
         <TopTracks />
       </div>
