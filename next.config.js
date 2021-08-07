@@ -25,6 +25,7 @@ module.exports = {
       },
     ];
   },
+  trailingSlash: false,
   webpack: (config, { dev, isServer }) => {
     if (isServer) {
       require('./scripts/generate-sitemap');
