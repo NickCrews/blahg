@@ -10,7 +10,7 @@ export default function Analytics() {
 
   return (
     <MetricCard
-      header="All-Time Views"
+      header="All-Time Website Views"
       link={constants.url}
       metric={pageViews}
     />
