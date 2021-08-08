@@ -13,8 +13,10 @@ export default function Projects({ posts }) {
         Number(new Date(b.meta.publishedAt)) -
         Number(new Date(a.meta.publishedAt))
     )
-    .filter((post) =>
-      post.meta.title.toLowerCase().includes(searchValue.toLowerCase())
+    .filter(
+      (post) =>
+        post.meta.title.toLowerCase().includes(searchValue.toLowerCase()) ||
+        post.meta.summary.toLowerCase().includes(searchValue.toLowerCase())
     );
   const projectCards = filteredPosts.map((post) => fromPost(post));
 
