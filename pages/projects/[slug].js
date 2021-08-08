@@ -1,14 +1,14 @@
 import { MDXRemote } from 'next-mdx-remote';
 
-import { getFiles, getFileBySlug } from '@/lib/mdx';
+import { allSlugs, postFromSlug } from '@/lib/mdx';
 import ProjectLayout from '@/layouts/project';
 import MDXComponents from '@/components/MDXComponents';
 
-export default function Project({ mdxSource, frontMatter }) {
+export default function Project({ post }) {
   return (
-    <ProjectLayout frontMatter={frontMatter}>
+    <ProjectLayout meta={post.meta} slug={post.slug}>
       <MDXRemote
-        {...mdxSource}
+        {...post.mdxContent}
         components={{
           ...MDXComponents,
         }}
@@ -18,12 +18,11 @@ export default function Project({ mdxSource, frontMatter }) {
 }
 
 export async function getStaticPaths() {
-  const posts = await getFiles('projects');
-
+  const slugs = allSlugs();
   return {
-    paths: posts.map((p) => ({
+    paths: slugs.map((slug) => ({
       params: {
-        slug: p.replace(/\.mdx/, ''),
+        slug: slug,
       },
     })),
     fallback: false,
@@ -31,7 +30,6 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const post = await getFileBySlug('projects', params.slug);
-
-  return { props: { ...post } };
+  const post = await postFromSlug(params.slug);
+  return { props: { post } };
 }
