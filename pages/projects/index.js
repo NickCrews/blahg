@@ -1,8 +1,9 @@
 import { useState } from 'react';
 
 import Container from '@/components/Container';
-import { fromPost } from '@/components/ProjectPost';
+import { fromPost } from '@/components/ProjectCard';
 import { allPosts } from '@/lib/mdx';
+import CardGrid from '@/components/CardGrid';
 
 export default function Projects({ posts }) {
   const [searchValue, setSearchValue] = useState('');
@@ -15,13 +16,14 @@ export default function Projects({ posts }) {
     .filter((post) =>
       post.meta.title.toLowerCase().includes(searchValue.toLowerCase())
     );
+  const projectCards = filteredPosts.map((post) => fromPost(post));
 
   return (
     <Container
       titlePrefix="Projects"
       description="Some of my past work with software, engineering, design, and teaching."
     >
-      <div className="flex flex-col justify-center items-start max-w-2xl mx-auto mb-16">
+      <div className="flex flex-col justify-center items-start max-w-4xl mx-auto mb-16">
         <h1 className="font-bold text-3xl md:text-5xl tracking-tight mb-4 text-black dark:text-white">
           Projects
         </h1>
@@ -62,7 +64,7 @@ export default function Projects({ posts }) {
             No posts found.
           </p>
         )}
-        {filteredPosts.map((post) => fromPost(post))}
+        <CardGrid>{projectCards}</CardGrid>
       </div>
     </Container>
   );

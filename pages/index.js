@@ -1,13 +1,15 @@
 import Link from 'next/link';
 
 import Container from '../components/Container';
-import { fromPost } from '../components/ProjectPost';
+import { fromPost } from '../components/ProjectCard';
+import CardGrid from '@/components/CardGrid';
 import { postFromSlug } from '@/lib/mdx';
 
 export default function Home({ featuredProjects }) {
+  const projectCards = featuredProjects.map((post) => fromPost(post));
   return (
     <Container>
-      <div className="flex flex-col justify-center items-start max-w-2xl mx-auto mb-16">
+      <div className="flex flex-col justify-center items-start max-w-4xl mx-auto mb-16">
         <h1 className="font-bold text-3xl md:text-5xl tracking-tight mb-4 text-black dark:text-white">
           Hello, Friend!
         </h1>
@@ -18,7 +20,7 @@ export default function Home({ featuredProjects }) {
         <h3 className="font-bold text-2xl md:text-4xl tracking-tight mb-4 text-black dark:text-white">
           Featured Projects
         </h3>
-        {featuredProjects.map((post) => fromPost(post))}
+        <CardGrid>{projectCards}</CardGrid>
         <h3 className="font-bold text-2xl md:text-4xl tracking-tight mb-4 text-black dark:text-white">
           About
         </h3>
