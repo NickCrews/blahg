@@ -1,9 +1,7 @@
-import useSWR from 'swr';
-
-import fetcher from '@/lib/fetcher';
+import useMySWR from '@/lib/useMySWR';
 
 export default function NowPlaying() {
-  const { data } = useSWR('/api/now-playing', fetcher);
+  const data = useMySWR('/api/now-playing');
 
   return (
     <div className="flex flex-row">

@@ -1,11 +1,10 @@
-import useSWR from 'swr';
+import useMySWR from '@/lib/useMySWR';
 
-import fetcher from '@/lib/fetcher';
 import constants from '@/lib/constants';
 import MetricCard from '@/components/metrics/Card';
 
 export default function Analytics() {
-  const { data } = useSWR('/api/views', fetcher);
+  const data = useMySWR('/api/views');
 
   const pageViews = new Number(data?.total);
 

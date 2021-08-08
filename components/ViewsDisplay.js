@@ -1,9 +1,7 @@
-import useSWR from 'swr';
-
-import fetcher from '@/lib/fetcher';
+import useMySWR from '@/lib/useMySWR';
 
 export default function ViewsDisplay({ slug }) {
-  const { data } = useSWR(`/api/views/${slug}`, fetcher);
+  const data = useMySWR(`/api/views/${slug}`);
   const views = new Number(data?.total);
   return `${views ? views.toLocaleString() : '–––'} views`;
 }

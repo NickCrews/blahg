@@ -1,10 +1,8 @@
-import useSWR from 'swr';
-
-import fetcher from '@/lib/fetcher';
+import useMySWR from '@/lib/useMySWR';
 import MetricCard from '@/components/metrics/Card';
 
 export default function GitHub() {
-  const { data } = useSWR('/api/github', fetcher);
+  const data = useMySWR('/api/github');
 
   const stars = new Number(data?.stars);
   const link = 'https://github.com/NickCrews';
