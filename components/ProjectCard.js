@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 import ViewsDisplay from './ViewsDisplay';
 
-const ProjectPost = ({ title, summary, slug }) => {
+export default function ProjectCard({ title, summary, slug }) {
   return (
     <Link href={`/projects/${slug}`}>
       <a className="w-full mb-8">
@@ -24,13 +24,11 @@ const ProjectPost = ({ title, summary, slug }) => {
       </a>
     </Link>
   );
-};
-
-export default ProjectPost;
+}
 
 export function fromPost(post) {
   return (
-    <ProjectPost
+    <ProjectCard
       key={post.slug}
       title={post.meta.title}
       summary={post.meta.summary}

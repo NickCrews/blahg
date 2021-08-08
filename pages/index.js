@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
 import Container from '../components/Container';
-import { fromPost } from '../components/ProjectPost';
+import { fromPost } from '../components/ProjectCard';
 import { postFromSlug } from '@/lib/mdx';
 
 export default function Home({ featuredProjects }) {

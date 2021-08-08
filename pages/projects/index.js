@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 import Container from '@/components/Container';
-import { fromPost } from '@/components/ProjectPost';
+import { fromPost } from '@/components/ProjectCard';
 import { allPosts } from '@/lib/mdx';
 
 export default function Projects({ posts }) {
