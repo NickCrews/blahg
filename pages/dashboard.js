@@ -15,9 +15,9 @@ export default function Dashboard() {
         </h1>
         <div className="mb-8">
           <p className="text-gray-600 dark:text-gray-400 mb-4">
-            This is my personal dashboard, built with Next.js API routes
-            deployed as serverless functions. I use this dashboard to track
-            various metrics across platforms like this site, GitHub, and more.
+            Here are a few stats on me, this website, and my GitHub. Mostly this
+            is a demo of a few interesting uses of serverless functions and
+            Next.js API routes.
           </p>
         </div>
         <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 my-2 w-full">
@@ -28,9 +28,9 @@ export default function Dashboard() {
           Top Tracks
         </h2>
         <p className="text-gray-600 dark:text-gray-400 mb-4">
-          Curious what I'm currently jamming to? Here are my top tracks on
-          Spotify, updated daily. This shows off using serverless functions to
-          query the Spotify API. Hopefully you don't think this is too creepy...
+          Want to see something creepy? Here are my top tracks on Spotify,
+          updated daily. This shows off using serverless functions to query the
+          Spotify API.
         </p>
         <TopTracks />
       </div>

@@ -14,11 +14,15 @@ export default function Footer() {
           <FooterColumn>
             <Link href="/">Home</Link>
             <Link href="/about">About</Link>
+            <Link href="/projects">Projects</Link>
           </FooterColumn>
           <FooterColumn>
             <Link href="https://github.com/NickCrews">GitHub</Link>
             <Link href="https://linkedin.com/in/nicholas-b-crews">
               LinkedIn
+            </Link>
+            <Link href="mailto:nicholas.b.crews@gmail.com">
+              nicholas.b.crews@gmail.com
             </Link>
           </FooterColumn>
         </div>
