@@ -2,15 +2,14 @@ import { useEffect } from 'react';
 
 import ViewsDisplay from './ViewsDisplay';
 
-export default function ViewCounter({ slug }) {
-  useEffect(() => {
-    const registerView = () =>
+export default function ViewsCounter({ slug }) {
+  useEffect(
+    () =>
       fetch(`/api/views/${slug}`, {
         method: 'POST',
-      });
-
-    registerView();
-  }, [slug]);
+      }),
+    [slug]
+  );
 
   return <ViewsDisplay slug={slug} />;
 }

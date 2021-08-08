@@ -3,7 +3,7 @@ import { parseISO, format } from 'date-fns';
 
 import Container from '@/components/Container';
 import Divider from '@/components/Divider';
-import ViewCounter from '@/components/ViewCounter';
+import ViewsCounter from '@/components/ViewsCounter';
 
 const editUrl = (slug) =>
   `https://github.com/NickCrews/blahg/edit/main/data/projects/${slug}.mdx`;
@@ -39,7 +39,7 @@ export default function ProjectLayout({ children, meta, slug }) {
           <p className="text-sm text-gray-500 min-w-32 mt-2 md:mt-0">
             {meta.readingTime.text}
             {` • `}
-            <ViewCounter slug={slug} />
+            <ViewsCounter slug={slug} />
           </p>
         </div>
         <div className="prose dark:prose-dark max-w-none w-full">
