@@ -1,18 +1,19 @@
 import { useState } from 'react';
 
 import Container from '@/components/Container';
-import ProjectPost from '@/components/ProjectPost';
-import { getAllFilesFrontMatter } from '@/lib/mdx';
+import { fromPost } from '@/components/ProjectPost';
+import { allPosts } from '@/lib/mdx';
 
 export default function Projects({ posts }) {
   const [searchValue, setSearchValue] = useState('');
-  const filteredProjectPosts = posts
+  const filteredPosts = posts
     .sort(
       (a, b) =>
-        Number(new Date(b.publishedAt)) - Number(new Date(a.publishedAt))
+        Number(new Date(b.meta.publishedAt)) -
+        Number(new Date(a.meta.publishedAt))
     )
-    .filter((frontMatter) =>
-      frontMatter.title.toLowerCase().includes(searchValue.toLowerCase())
+    .filter((post) =>
+      post.meta.title.toLowerCase().includes(searchValue.toLowerCase())
     );
 
   return (
@@ -56,21 +57,18 @@ export default function Projects({ posts }) {
         <h3 className="font-bold text-2xl md:text-4xl tracking-tight mb-4 mt-8 text-black dark:text-white">
           All Posts
         </h3>
-        {!filteredProjectPosts.length && (
+        {!filteredPosts.length && (
           <p className="text-gray-600 dark:text-gray-400 mb-4">
             No posts found.
           </p>
         )}
-        {filteredProjectPosts.map((frontMatter) => (
-          <ProjectPost key={frontMatter.title} {...frontMatter} />
-        ))}
+        {filteredPosts.map((post) => fromPost(post))}
       </div>
     </Container>
   );
 }
 
 export async function getStaticProps() {
-  const posts = await getAllFilesFrontMatter('projects');
-
+  const posts = await allPosts();
   return { props: { posts } };
 }

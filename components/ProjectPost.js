@@ -10,6 +10,12 @@ const ProjectPost = ({ title, summary, slug }) => {
   return (
     <Link href={`/projects/${slug}`}>
       <a className="w-full mb-8">
+        {/* TODO this, but I style it better first */}
+        {/* <Image
+          src={image.src}
+          height={image.height}
+          width={mage.width}
+        /> */}
         <div className="flex flex-col md:flex-row justify-between">
           <h4 className="text-lg md:text-xl font-medium mb-2 w-full text-gray-900 dark:text-gray-100">
             {title}
@@ -25,3 +31,14 @@ const ProjectPost = ({ title, summary, slug }) => {
 };
 
 export default ProjectPost;
+
+export function fromPost(post) {
+  return (
+    <ProjectPost
+      key={post.slug}
+      title={post.meta.title}
+      summary={post.meta.summary}
+      slug={post.slug}
+    />
+  );
+}

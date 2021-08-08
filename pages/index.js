@@ -1,9 +1,10 @@
 import Link from 'next/link';
 
 import Container from '../components/Container';
-import ProjectPost from '../components/ProjectPost';
+import { fromPost } from '../components/ProjectPost';
+import { postFromSlug } from '@/lib/mdx';
 
-export default function Home() {
+export default function Home({ featuredProjects }) {
   return (
     <Container>
       <div className="flex flex-col justify-center items-start max-w-2xl mx-auto mb-16">
@@ -17,21 +18,7 @@ export default function Home() {
         <h3 className="font-bold text-2xl md:text-4xl tracking-tight mb-4 text-black dark:text-white">
           Featured Projects
         </h3>
-        <ProjectPost
-          title="Homemade Force Sensor"
-          summary="Learn about the high-strength, wireless force sensor I fabricated and programmed."
-          slug="force-sensor"
-        />
-        <ProjectPost
-          title="Virtuwall"
-          summary="Detect a climber and holds on a indoor rock climbing wall using an Xbox Kinect, Python, and computer vision."
-          slug="virtuwall"
-        />
-        <ProjectPost
-          title="Homemade Rock Climbing Cam"
-          summary="I machined a high-performing clone of a Black Diamond C4 cam."
-          slug="climbing-cam"
-        />
+        {featuredProjects.map((post) => fromPost(post))}
         <h3 className="font-bold text-2xl md:text-4xl tracking-tight mb-4 text-black dark:text-white">
           About
         </h3>
@@ -44,4 +31,13 @@ export default function Home() {
       </div>
     </Container>
   );
+}
+
+export async function getStaticProps() {
+  const featuredProjects = [
+    await postFromSlug('force-sensor'),
+    await postFromSlug('chrome-os'),
+    await postFromSlug('virtuwall'),
+  ];
+  return { props: { featuredProjects } };
 }
