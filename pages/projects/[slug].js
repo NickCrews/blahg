@@ -4,11 +4,11 @@ import { allSlugs, postFromSlug } from '@/lib/mdx';
 import ProjectLayout from '@/layouts/project';
 import MDXComponents from '@/components/MDXComponents';
 
-export default function Project({ mdxContent, meta }) {
+export default function Project({ post }) {
   return (
-    <ProjectLayout meta={meta}>
+    <ProjectLayout meta={post.meta} slug={post.slug}>
       <MDXRemote
-        {...mdxContent}
+        {...post.mdxContent}
         components={{
           ...MDXComponents,
         }}
@@ -31,5 +31,5 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const post = await postFromSlug(params.slug);
-  return { props: { meta: post.meta, mdxContent: post.mdxContent } };
+  return { props: { post } };
 }

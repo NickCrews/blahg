@@ -8,7 +8,7 @@ import ViewCounter from '@/components/ViewCounter';
 const editUrl = (slug) =>
   `https://github.com/NickCrews/blahg/edit/main/data/projects/${slug}.mdx`;
 
-export default function ProjectLayout({ children, meta }) {
+export default function ProjectLayout({ children, meta, slug }) {
   return (
     <Container
       titlePrefix={meta.title}
@@ -39,7 +39,7 @@ export default function ProjectLayout({ children, meta }) {
           <p className="text-sm text-gray-500 min-w-32 mt-2 md:mt-0">
             {meta.readingTime.text}
             {` • `}
-            <ViewCounter slug={meta.slug} />
+            <ViewCounter slug={slug} />
           </p>
         </div>
         <div className="prose dark:prose-dark max-w-none w-full">
@@ -47,11 +47,7 @@ export default function ProjectLayout({ children, meta }) {
         </div>
         <Divider />
         <div className="text-sm text-gray-700 dark:text-gray-300">
-          <a
-            href={editUrl(meta.slug)}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a href={editUrl(slug)} target="_blank" rel="noopener noreferrer">
             {'Edit this page on GitHub'}
           </a>
         </div>
